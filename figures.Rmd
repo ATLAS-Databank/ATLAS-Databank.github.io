@@ -1,0 +1,74 @@
+---
+title: "figures"
+output: html_document
+---
+<style type="text/css">
+  .title {
+    display: none;
+  }
+    
+</style>
+---
+
+```{r, echo = FALSE}
+# knitr::opts_chunk$set(echo = TRUE)
+# 
+# library(ggplot2)
+# library(sf)
+# library(readr)
+# library(plotly)
+# library(rnaturalearth)
+# 
+# world <- ne_countries(scale = "medium", returnclass = "sf") # get map
+# ATLAS_space_Databank_locations <- read_csv("../ATLAS Data/ATLAS_space_Databank_locations.csv")
+# 
+# map <- ggplot(data = world) +
+#   geom_sf(color = "grey70", alpha = 0.4) +
+#   geom_point(data = ATLAS_space_Databank_locations, aes(x = lon, y = lat), alpha = 0.8, color = 'black') +
+#   geom_point(data = ATLAS_space_Databank_locations, aes(x = lon, y = lat), alpha = 1, color = 'black', fill = NA) +
+#   coord_sf(expand = 0) +
+#   scale_x_continuous(name = NULL, limits = c(-180, 180)) +
+#   scale_y_continuous(name = NULL, limits = c(-60, 90)) +
+#   theme_bw() +
+#   theme(plot.title = element_text(hjust = 0.5),
+#         panel.grid.major = element_blank(),
+#         legend.position = "bottom",
+#         strip.text = element_text(size = 20))
+# 
+# plotly_map <- ggplotly(map)
+# 
+# plotly_map
+```
+
+```{r, echo = FALSE}
+# library(dplyr)
+# library(plotly)
+# 
+# data <- read.csv("../ATLAS Data/ATLAS_space_Databank_locations.csv")
+# 
+# # Create an interactive histogram broken down by continent
+# plotly_hist <- function(data) {
+#   # Aggregate data by continent
+#   continent_counts <- data %>%
+#     group_by(continent) %>%
+#     summarise(count = n())
+# 
+# plot <- plot_ly(data = continent_counts, x = ~continent, y = ~count, type = "bar") %>%
+#   layout(title = "Number of Locations by Continent",
+#          xaxis = list(title = "Continent"),
+#          yaxis = list(title = "Count"))
+# 
+#   return(plot)
+# }
+# 
+# plotly_hist <- plotly_hist(data)
+# 
+# htmlwidgets::saveWidget(plotly_hist, "plotly_hist.html", selfcontained = TRUE)
+
+```
+
+
+
+# Study Sites
+<iframe src="plotly_map.html" width="1050" height="500"></iframe>
+<iframe src="plotly_hist.html" width="700" height="55                                                                                                                                                                                                                                                                                                                                                                                                                                           0"></iframe>

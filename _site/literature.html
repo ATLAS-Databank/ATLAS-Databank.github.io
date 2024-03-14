@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Literature</title>
+
+<script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">My Website</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="team.html">The Team</a>
+</li>
+<li>
+  <a href="dataset.html">Dataset</a>
+</li>
+<li>
+  <a href="figures.html">Figures</a>
+</li>
+<li>
+  <a href="literature.html">Literature</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Literature</h1>
+
+</div>
+
+
+<style type="text/css">
+  .title {
+    display: none;
+  }
+</style>
+<ol style="list-style-type: decimal">
+<li>Linda Abarbanell &amp; Peggy Li (2021) Unraveling the contribution
+of leftright language on spatial perspective taking, Spatial Cognition
+&amp; Computation, 21:1, 1-38.</li>
+<li>Abarbanell, L., Montana, R., &amp; Li, P. (2011, September).
+Revisiting the plasticity of human spatial cognition. In International
+Conference on Spatial Information Theory (pp. 245-263). Springer,
+Berlin, Heidelberg.</li>
+<li>Adamou, E., &amp; Shen, X. R. (2017). Beyond language shift: spatial
+cognition among the Ixcatecs in Mexico. Journal of Cognition and
+Culture, 17(1-2), 94-115.</li>
+<li>Báez, G. P. (2011). Spatial frames of reference preferences in
+Juchitán Zapotec. Language Sciences, 33(6), 943-960.</li>
+<li>Beller, S. &amp; Bender, A. (2017). How Relative is the Relative
+Frame of Reference? Front and back in Norwegian, Farsi, German, and
+Japanese. In G. Gunzelmann, A. Howes, T. Tenbrink, &amp; E. J. Davelaar
+(Eds.), Proceedings of the 39th Annual Conference of the Cognitive
+Science Society (118-123). Cognitive Science Society.</li>
+<li>Beller, S., Singmann, H., Hüther, L., &amp; Bender, A. (2015). Turn
+around to have a look? Spatial referencing in dorsal vs. frontal
+settings in cross-linguistic comparison. Frontiers in Psychology, 6,
+1283.</li>
+<li>Bender, A., Teige-Mocigemba, S., Rothe-Wulf, A., Seel, M., &amp;
+Beller, S. (2019). Being in front is good - but where is in front?
+Preferences for spatial referencing affect evaluation. Cognitive
+Science, 44(6).</li>
+<li>Bennardo, G., Beller, S., &amp; Bender, A. (2010). Temporal frames
+of reference: Conceptual analysis and empirical evidence from German,
+English, Mandarin Chinese and Tongan. Journal of Cognition and Culture,
+10(3-4), 283-307.</li>
+<li>Bohnemeyer, J. (2011). Spatial frames of reference in Yucatec:
+Referential promiscuity and task-specificity. Language sciences, 33(6),
+892-914.</li>
+<li>Bohnemeyer, J.; Donelson, K.; Tucker, R.; Benedicto, E.; Garza, A.
+C; Eggleston, A., et al. (2014). The Cultural Transmission of Spatial
+Cognition: Evidence from a Large-scale Study. Proceedings of the Annual
+Meeting of the Cognitive Science Society, 36.</li>
+<li>Caffò, A. O., Lopez, A., Spano, G., Stasolla, F., Serino, S.,
+Cipresso, P., &amp; Bosco, A. (2020). The differential effect of normal
+and pathological aging on egocentric and allocentric spatial memory in
+navigational and reaching space. Neurological Sciences, 41,
+1741-1749.</li>
+<li>Capistran Garza, A. (2011). Locative and orientation descriptions in
+Tarascan: Topological relations and frames of reference. Language
+Sciences, 33(6), 1006-1024.</li>
+<li>Celik, K., Takubo, Y., &amp; Núñez, R. (2019). Spatial frames of
+reference in Miyako: Digging into Whorfian linguistic relativity.
+Japanese/Korean Linguistics, 25.</li>
+<li>Cerqueglini, L. (2015). Spatial frames of reference in traditional
+Negev Arabic: Language-to-cognition correlation. Cognitive Processing,
+16(1), 185-188.</li>
+<li>Dasen, P. R., Changkakoti, N., Abbiati, M., Niraula, S., Mishra, R.
+C., &amp; Foy, H. (2009). Geocentric gestures as a research tool. In G.
+Aikaterini &amp; K. Myonas (Eds.), Quod Erat Demonstrandum: From
+Herodotus’ ethnographic journeys to cross-cultural research: Proceedings
+from the 18th International Congress of the International Association
+for Cross-Cultural Psychology.</li>
+<li>Dobnik, S., Kelleher, J. D., &amp; Howes, C. (2020). Local Alignment
+of Frame of Reference Assignment in English and Swedish Dialogue. In J.
+Škilters, N. Newcombe, &amp; D. Uttal (Eds.), Spatial Cognition XII:
+Lecture Notes in Artificial Intelligence, 12162 (pp. 251–267). Springer.
+<a href="https://doi.org/https://doi.org/10.10007/978-3-030-57983-8"
+class="uri">https://doi.org/https://doi.org/10.10007/978-3-030-57983-8</a></li>
+<li>Edmond-Wathen, C. (2011). What comes before?: Understanding spatial
+reference in Iwaidja. In M. Setati, T. Nkambule, L. Goosen (Eds.),
+Proceedngs of the ICMI Study 21 Conference: Mathematics and language
+diversity (pp. 89-97). Sāo Paolo, Brazil: ICMI</li>
+<li>Eggleston, A., Benedicto, E., &amp; Balna, M. Y. (2011). Spatial
+frames of reference in Sumu-Mayangna. Language Sciences, 33(6),
+1047-1072.</li>
+<li>Le Guen, O. (2011). Speech and gesture in spatial language and
+cognition among the yucatec mayas. Cognitive Science, 35(5),
+905–938.</li>
+<li>Haun, D. B. M., &amp; Rapold, C. J. (2009). Variation in memory for
+body movements across cultures. in Current Biology, 19(23).</li>
+<li>Haun, D. B. M., &amp; Rapold, C. J. (2009). Variation in memory for
+body movements across cultures. in Current Biology, 19(23).</li>
+<li>Haun, D. B. M., Rapold, C. J., Call, J., Janzen, G., Levinson, S. C.
+(2006). Cognitive cladistics and cultural override in Hominid spatial
+cognition. Proceedings of the National Academy of Sciences of the United
+States of America, 103 (46), 17568-17573.</li>
+<li>Haun, D. B., Rapold, C. J., Janzen, G., &amp; Levinson, S. C.
+(2011). Plasticity of human spatial cognition: Spatial language and
+cognition covary across cultures. Cognition, 119(1), 70-80.</li>
+<li>Huther, L., Bentz, A., Spada, H., Bender, A., &amp; Beller, S.
+(2013). Influences Beyond Language: Comparing Spatial Referencing in
+Native French Speakers from Four Countries. Proceedings of the Annual
+Meeting of the Cognitive Science Society, 35.</li>
+<li>Huther, L., Bentz, A., Spada, H., Bender, A., &amp; Beller, S.
+(2013). Influences Beyond Language: Comparing Spatial Referencing in
+Native French Speakers from Four Countries. Proceedings of the Annual
+Meeting of the Cognitive Science Society, 35.</li>
+<li>Kataoka, K. &amp; Asahi, Y. (2015). Synchronic and diachronic
+variation in the use of spatial frames of reference: An analysis of
+Japanese route instruction. Journal of Sociolinguistics, 19(2),
+133-160.</li>
+<li>Levinson, S. C., Kita, S., Haun, D. B.M., Rasch, B. H. (2002).
+Returning the tables: Language affects spatial reasoning. Cognition, 84,
+155-188</li>
+<li>Levinson, Stephen C., and Penelope Brown. 1994. “Immanuel Kant Among
+the Tenejapan: Anthropology as Empirical Philosophy.” Ethos 22 (1):
+3-41</li>
+<li>Li, J. (2012). Different spatial terms in navigation system for
+Chinese drivers. Cognitive Processing, 13(1), 229-232.</li>
+<li>Li, J. &amp; Zhang, K. (2009). Regional differences in spatial frame
+of reference systems for people in different areas of China. Perceptual
+and Motor Skills, 108(2), 587-596.</li>
+<li>Li, P. &amp; Abarbanell, L. (2018). Competing perspectives on frames
+of reference in language and thought. Cognition, 170, 9-24.</li>
+<li>Li, P., Arbabanelle, L., Geitman, L., &amp; Papafragou, A. (2011).
+Spatial reasoning in Tenejapan Mayans. Cognition, 120, 33-53.</li>
+<li>Marghetis, T., McComsey, M., &amp; Cooperrider, K. (2020). Space in
+hand and mind: Gesture and spatial frames of reference in bilingual
+Mexico. Cognitive Science, 44(12).</li>
+<li>Meakins, F., Jones, C., &amp; Algy, C. (2016). Bilingualism,
+language shift and the corresponding expansion of spatial cognitive
+systems. Language Sciences, 54, 1-13.</li>
+<li>Mishra, R. C. &amp; Dasen, P. R. (2013). Development of spatial
+language and cognition in Hindi-and Sanskrit-medium schools.
+Psychological Studies, 58(4), 446-455.</li>
+<li>Mishra, R. C. &amp; Jha, R. K. (2018). Effect of Hindi, Sanskrit and
+Urdu medium schooling on spatial language and encoding. Journal of
+Cultural Cognitive Science, 2(1-2), 9-20.</li>
+<li>Mishra, R. C., Dasen, P. R., Niraula, S. (2003). Ecology, language,
+and performance on spatial cognitive tasks. International Journal of
+Psychology, 38 (6), 366-383.</li>
+<li>Mishra, R. C., Singh, S., &amp; Dasen, P. R. (2013). Development of
+spatial language and cognition in Hindi-and Sanskrit-medium schools.
+Psychological Studies, 58(4), 446-455.</li>
+<li>Mou, W., McNamara, T., Rump, B., Xiao, C. (2006). Roles of
+egocentric and allocentric spatial representations in locomotion and
+reorientation. Journal of Experimental Psychology: Learning, Memory, and
+Cognition, 32 (6), 1274-1290.</li>
+<li>Nikitina, Tatiana. “Frames of reference in discourse: Spatial
+descriptions in Bashkir (Turkic)” Cognitive Linguistics, vol. 29, no. 3,
+2018, pp. 495-544.</li>
+<li>Núñez, R., Celik, K., &amp; Nakagawa, N. (2019). Absolute Spatial
+Frames of Reference in Bilingual Speakers of Endangered Ryukyuan
+Languages: An Assessment via a Novel Gesture Elicitation Paradigm. In
+A.K. Goel, C.M. Seifert, &amp; C. Freksa (Eds.), Proceedings of the 41st
+Annual Conference of the Cognitive Science Society (pp. 890-896).
+Cognitive Science Society.</li>
+<li>O’Meara, C. (2011). Spatial frames of reference in Seri. Language
+Sciences, 33(6), 1025-1046.</li>
+<li>Pederson, E., Danziger, E., Wilkins, D. P., Levinson, S. C., Kita,
+S., Senft, G. (1998). Semantic typology and spatial conceptualization.
+Language, 74(3), 557-589.</li>
+<li>Pitt, B., Carstensen, A., Gibson, E., &amp; Piantadosi, S. (2021).
+Variation in spatial concepts: Different frames of reference on
+different axes. Proceedings of the Annual Meeting of the Cognitive
+Science Society, 43.</li>
+<li>Polian, G. &amp; Bohnemeyer, J. (2011). Uniformity and variation in
+Tseltal reference frame use. Language Sciences, 33(6), 868-891.</li>
+<li>Romero-Méndez, R. (2011). Frames of reference and topological
+descriptions in Ayutla Mixe. Language Sciences, 33(6), 915-942.</li>
+<li>Sekine, K. (2009). Changes in frame of reference use across the
+preschool years: A longitudinal study of the gestures and speech
+produced during route descriptions. Language and Cognitive Processes,
+24(2), 218-238.</li>
+<li>Senft, G. (1994). Spatial reference in Kilivila: The Tinkertoy
+matching games–A case study. Language and Linguistic in Melanesia, 25,
+55-93.</li>
+<li>Shapero Joshua, A. (2017). Does Environmental Experience Shape
+Spatial Cognition? Frames of Reference Among Ancash Quechua Speakers.
+Cognitive Science 41 (5):1274-1298.</li>
+<li>Soto, V. V. (2011). The “uphill” and “downhill” system in Meseño
+Cora. Language Sciences, 33(6), 981-1005.</li>
+<li>Takekuro, M. (2007, November). Language and gesture on Ishigaki
+Island. Annual Meeting of the Berkeley Linguistics Society, 33 (1),
+412-423.</li>
+<li>Vorwerg, C. &amp; Weiß, P. (2010). Verb semantics affects the
+interpretation of spatial prepositions. Spatial Cognition &amp;
+Computation, 10(4), 247-291.</li>
+<li>Wassmann, J. &amp; Dasen, P. R. (1998). Balinese spatial
+orientation: Some empirical evidence of moderate linguistic relativity.
+The Journal of the Royal Anthropological Institute, 4(2), 689-711.</li>
+<li>Xie, C., Li, S., Tao, W., Wei, Y., &amp; Sun, H. J. (2017).
+Representing spatial layout according to intrinsic frames of reference:
+Limitations from position regularity and instructions. Psychological
+Reports, 120(5), 846-869.</li>
+<li>Pederson, E., Danziger, E., Wilkins, D., Levinson, S., Kita, S.,
+&amp; Senft, G. (1998). Semantic Typology and Spatial Conceptualization.
+Language, 74(3), 557–589. <a href="https://doi.org/10.2307/417793"
+class="uri">https://doi.org/10.2307/417793</a></li>
+<li>Pederson, E. (1993). Geographic and manipulable space in two Tamil
+linguistic systems. In: Frank, A.U., Campari, I. (eds) Spatial
+Information Theory A Theoretical Basis for GIS. COSIT 1993. Lecture
+Notes in Computer Science, vol 716. Springer, Berlin, Heidelberg. <a
+href="https://doi.org/10.1007/3-540-57207-4_20"
+class="uri">https://doi.org/10.1007/3-540-57207-4_20</a></li>
+</ol>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

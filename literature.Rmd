@@ -1,0 +1,28 @@
+---
+title: "Literature"
+output: html_document
+---
+
+<style type="text/css">
+  .title {
+    display: none;
+  }
+</style>
+
+```{r, echo = FALSE}
+# data2 <- read.csv("ATLASDatabankv0.2-SPACEFinalized.csv")
+# 
+# data2 <- data2[!duplicated(data2$Citation), ]
+# data2
+# 
+# write.csv(data2, "unique_citations.csv", row.names = FALSE)
+# 
+
+```
+
+```{r, echo = FALSE, results='asis'}
+data2 <- read.csv("unique_citations.csv")
+for (i in seq_along(data2$Citation)) {
+  cat(paste(i, ". ", data2$Citation[i], "\n", sep = ""))
+}
+```

@@ -1,0 +1,30 @@
+---
+title: "The Team"
+output: html_document
+---
+<style type="text/css">
+  .title {
+    display: none;
+  }
+    
+</style>
+
+# Lead Investigators
+Tyler Marghetis
+Kevin Holmes
+
+# Coding Coordinator
+Alyssa Ortega
+
+# Coders
+Maya Star-Lack
+Benjamin Robbins
+Ricardo Alfonso
+Saloni Naik
+Axel Jacobo
+Kaushik Ram
+Harini Muralidharan
+Julia Ton
+Leslie Flores
+Isabella Dohnke
+Sandra Chacon
