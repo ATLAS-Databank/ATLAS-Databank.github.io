@@ -1,0 +1,7 @@
+"0",""
+"0",""
+"0","library(dplyr)"
+"0","data2 <- data2 %>% "
+"0","  select(Authors, Year, Title, Venue, VenueType, Citation, ResearchQuestion)"
+"0","write.csv(data2, ""unique_citations.csv"", row.names = FALSE)"
+"0",""

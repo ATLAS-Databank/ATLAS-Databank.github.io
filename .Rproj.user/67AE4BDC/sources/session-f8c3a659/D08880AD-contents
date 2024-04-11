@@ -1,0 +1,18 @@
+name: "my-website"
+navbar:
+  title: "ATLAS"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Dataset"
+      href: dataset.html
+    - text: "Figures"
+      href: figures.html
+    - text: "Literature"
+      href: literature.html
+    - text: "The Team"
+      href: team.html
+      
+output:
+  html_document:
+    theme: yeti

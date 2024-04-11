@@ -1,0 +1,16 @@
+"0","SocialNetworks_metadata <- read_csv(""../data/SocialNetworksofPhilosophyFINALCodingSheet-Metadata.csv"")"
+"2","[1mRows: [22m[34m59[39m [1mColumns: [22m[34m15[39m"
+"2","[36m──[39m [1mColumn specification[22m [36m───────────────────────────────────────────────────────────────────[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (15): Figure, Page, EarliestYear, LatestYear, Caption, Location, Location_modern, C..."
+"2","
+[36mℹ[39m Use `spec()` to retrieve the full column specification for this data.
+[36mℹ[39m Specify the column types or set `show_col_types = FALSE` to quiet this message."
+"0","SocialNetworks_metadata <- SocialNetworks_metadata %>% "
+"0","  subset(is.na(Figure) == F)"
+"0","SocialNetworks_metadata <- SocialNetworks_metadata[-c(1, 57), ]"
+"0",""
+"0","SocialNetworks_metadata$EarliestYear <- as.numeric(gsub(""[BCEACE]"", """", SocialNetworks_metadata$EarliestYear))"
+"0","SocialNetworks_metadata$LatestYear <- as.numeric(gsub(""[BCEACE]"", """", SocialNetworks_metadata$LatestYear))"
+"0",""
+"0","SocialNetworks_metadata"

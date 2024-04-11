@@ -1,0 +1,420 @@
+---
+title: "ATLAS_CogSci"
+author: "TylerMarghetis"
+date: "7/27/2022"
+output: html_document
+---
+
+Based on code by Tyler Marghetis and Sandra Chacon, March 5 2021.
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse) 
+library(ggmap) 
+library(sf)
+library("rnaturalearth")
+library("rnaturalearthdata")
+```
+
+# Load data
+
+```{r}
+# Load Space
+ATLAS_space_Databank <- read_csv("../ATLAS Data/ATLAS Databank v0.2 - SPACE Finalized – January 21 2024.csv")
+ATLAS_space_Databank <- ATLAS_space_Databank %>% 
+  subset(is.na(Citation) == F) %>%
+  mutate(Domain = "space")
+```
+  
+
+Massage:
+```{r}
+#### Combine data ####
+ATLAS_space_Databank <- ATLAS_space_Databank %>% 
+  mutate(GroupSampleSize = as.integer(as.character(GroupSampleSize)),
+         StudySampleSize = as.integer(as.character(StudySampleSize)))
+
+```
+
+# Geolocation
+Only run once: 
+```{r}
+register_google(key = "AIzaSyA2mOXjlpnfZ7d8ZXyM0jazsfy922uUnQc") # API key from Marghetis Lab account
+has_google_key()
+ 
+ATLAS_space_Databank <- ATLAS_space_Databank %>% 
+  mutate(SpecificLocation_noNA = case_when(is.na(SpecificLocation) == TRUE ~ "",
+                                           is.na(SpecificLocation) == FALSE ~ SpecificLocation,
+                                           TRUE ~ "error")) %>%
+  mutate(StudyLocation = paste(SpecificLocation_noNA, Country, sep=",")) 
+
+ATLAS_space_Databank.geo <- ATLAS_space_Databank %>% 
+  mutate(latlon = geocode(StudyLocation))
+
+# Massage the data, so the lat and long are stored in separate variables, for each
+ATLAS_space_Databank.geo <- ATLAS_space_Databank.geo %>%
+  mutate(lat = latlon$lat,
+         lon = latlon$lon) %>% 
+  select(-latlon)
+
+# write_csv(ATLAS_space_Databank.geo, "../ATLAS Data/ATLAS_space_geo.csv")
+```
+
+# Load geolocated data 
+```{r}
+rm(list = ls())
+ATLAS_space_geo <- read_csv("../ATLAS Data/ATLAS_space_geo.csv")
+```
+
+# Describe corpus
+
+From 1990s to 2020: 
+```{r}
+summary(ATLAS_space_geo$Year)
+ATLAS_space_geo %>% filter(is.na(Language))
+```
+
+# Plots
+
+```{r}
+#### Make a plot! ####
+world <- ne_countries(scale = "medium", returnclass = "sf") # get world map data
+
+space.location.plot1 <- ggplot(data = world) +
+  geom_sf(color="grey70", 
+          # aes(fill=rev(economy)),
+          alpha=0.4, show.legend = F) +
+  geom_point(data=subset(ATLAS_space_geo), 
+             aes(x=lon, y=lat, 
+                 # shape=LateralDirection,
+                 fill=Language,
+                 size=StudySampleSize), # decide whether to fill in circle
+             shape=21,
+             color="black",
+             alpha=.5) +
+  geom_point(data=subset(ATLAS_space_geo), 
+             aes(x=lon, y=lat), # decide whether to fill in circle
+             # shape=21, 
+             fill="black",
+             size=.5,
+             alpha=.5) +
+  coord_sf(expand=0) + 
+  #facet_wrap(~Domain_label, ncol=1) +
+  scale_x_continuous(name = NULL, limits = c(-150, 160)) + 
+  scale_y_continuous(name = NULL, limits = c(-60, 90)) + 
+  # scale_shape_manual(NULL, values=c(21,24), ) +
+  scale_size(guide=F, "sample size", 
+             breaks=c(4, 20,100,500), 
+             range=c(.1,12)) + 
+  # scale_color_discrete(NULL, guide=F) + 
+  scale_fill_discrete(NULL,
+                      # guide=F
+                      ) +
+  # facet_wrap(~Domain, nrow = 3) + 
+  theme_classic() + 
+  theme(plot.title = element_text(hjust=.5), 
+        panel.grid.major = element_blank(),
+        legend.position='right', strip.text = element_text(size=20))
+space.location.plot1
+
+space.location.plot2 <- ggplot(data = world) +
+  geom_sf(color="grey70", 
+          # aes(fill=rev(economy)),
+          alpha=0.4, show.legend = F) +
+  geom_point(data=subset(ATLAS_space_geo), 
+             aes(x=lon, y=lat, 
+                 # shape=LateralDirection,
+                 fill=Language,
+                 size=StudySampleSize), # decide whether to fill in circle
+             shape=21,
+             color="black",
+             alpha=.5) +
+  geom_point(data=subset(ATLAS_space_geo), 
+             aes(x=lon, y=lat), # decide whether to fill in circle
+             # shape=21, 
+             fill="black",
+             size=.5,
+             alpha=.5) +
+  coord_sf(expand=0) + 
+  #facet_wrap(~Domain_label, ncol=1) +
+  scale_x_continuous(name = NULL, limits = c(-200, 200)) + 
+  scale_y_continuous(name = NULL, limits = c(-100, 100)) + 
+  # scale_shape_manual(NULL, values=c(21,24), ) +
+  scale_size("sample size", 
+             # guide=F, 
+             breaks=c(5, 50, 500), 
+             range=c(.1,12)) + 
+  # scale_color_discrete(NULL, guide=F) + 
+  scale_fill_discrete(NULL,
+                      guide=F
+                      ) +
+  # facet_wrap(~Domain, nrow = 3) + 
+  theme_classic(base_size = 20) + 
+  theme(plot.title = element_text(hjust=.5), 
+        panel.grid.major = element_blank(),
+        legend.position='bottom', strip.text = element_text(size=20),
+        plot.margin = margin(t = 0,  # Top margin
+                             r = 0,  # Right margin
+                             b = 0,  # Bottom margin
+                             l = 0))
+space.location.plot2
+
+ggsave("plots/space.location.plot1.pdf",
+       space.location.plot1, height = 12, width = 6)
+
+ggsave("plots/space.location.plot2.pdf",
+       space.location.plot2, height = 6, width = 12, dpi = "retina")
+
+```
+
+# Explore data
+
+
+Lateral axis
+```{r}
+xtabs(~CyclicDirection + Domain, ATLAS_combined.geo)
+xtabs(~LateralDirection + Domain, ATLAS_combined.geo)
+
+
+Lateral.agg <- ATLAS_combined.geo %>% 
+  filter(LateralTested == TRUE) %>%
+  group_by(LateralDirection, Domain) %>%
+  summarize(n = n(), .groups = "drop") %>%
+  group_by(Domain) %>%
+  mutate(percent = n/sum(n)) %>% 
+  mutate(LateralDirection = case_when(LateralDirection == "usedMixedDirectionPreference" ~ 
+                                        "mixed preference",
+                                      LateralDirection == "usedNoDirectionPreferences" ~ 
+                                        "no preference",
+                                      LateralDirection == "didNotUse" ~ 
+                                        "did not use", 
+                                      TRUE ~ LateralDirection)) %>%
+  mutate(LateralDirection = fct_relevel(LateralDirection, "leftward", 
+                                        "rightward","mixed preference","did not use")) %>%
+  relocate(Domain) %>%
+  arrange(Domain)
+
+Lateral.agg %>% 
+  ggplot(aes(x=LateralDirection, y=percent, fill=Domain)) + 
+  geom_bar(stat = "identity", color="black") + 
+  geom_label(aes(label = n, y = percent + .05)) + 
+  facet_wrap(~Domain, ncol=1) + 
+  scale_x_discrete("Lateral Axis") + 
+  scale_y_continuous(limits = c(0, .6), expand=c(0,0)) + 
+  scale_fill_brewer(type = "qual", palette = 4, guide=F) + 
+  theme_classic()
+```
+
+Sagittal axis
+```{r}
+xtabs(~SagittalDirection + Domain, ATLAS_combined.geo)
+
+Sagittal.agg <- ATLAS_combined.geo %>% 
+  filter(SagittalTested == TRUE) %>%
+  group_by(SagittalDirection, Domain) %>%
+  summarize(n = n(), .groups = "drop") %>%
+  group_by(Domain) %>%
+  mutate(percent = n/sum(n)) %>% 
+  mutate(SagittalDirection = case_when(SagittalDirection == "usedMixedDirectionPreference" ~
+                                        "mixed preference",
+                                      SagittalDirection == "usedNoDirectionPreference" ~
+                                        "no preference",
+                                      SagittalDirection == "didNotUse" ~
+                                        "did not use",
+                                      TRUE ~ SagittalDirection)) %>%
+  mutate(SagittalDirection = fct_relevel(factor(SagittalDirection), "forward",
+                                        "backward","mixed preference","did not use")) %>%
+  relocate(Domain) %>%
+  arrange(Domain)
+
+Sagittal.agg %>% 
+  filter(Domain == "time") %>%
+  ggplot(aes(x=SagittalDirection, y=percent)) + 
+  geom_bar(stat = "identity", color="black") + 
+  geom_label(aes(label = n, y = percent + .05)) + 
+  facet_wrap(~Domain, ncol=1) + 
+  scale_x_discrete("Sagittal Axis") + 
+  scale_y_continuous(limits = c(0, .6), expand=c(0,0)) + 
+  # scale_fill_brewer(type = "qual", palette = 4, guide=F) + 
+  theme_classic()
+
+# Aymara is miscoded:
+ATLAS_combined.geo %>% 
+  filter(Domain=="time", Language=="Aymara")
+
+# Another one is miscoded:
+ATLAS_combined.geo %>% 
+  filter(Domain=="number", SagittalDirection=="backward")
+
+# Another one is miscoded:
+ATLAS_combined.geo %>% 
+  filter(Domain=="time", SagittalDirection=="usedMixedDirectionPreference")
+
+```
+
+Allocentric time
+```{r}
+xtabs(~CardinalDirection + TopographicDirection + Domain, ATLAS_combined.geo)
+
+Sagittal.agg <- ATLAS_combined.geo %>% 
+  filter(SagittalTested == TRUE) %>%
+  group_by(SagittalDirection, Domain) %>%
+  summarize(n = n(), .groups = "drop") %>%
+  group_by(Domain) %>%
+  mutate(percent = n/sum(n)) %>% 
+  mutate(SagittalDirection = case_when(SagittalDirection == "usedMixedDirectionPreference" ~
+                                        "mixed preference",
+                                      SagittalDirection == "usedNoDirectionPreference" ~
+                                        "no preference",
+                                      SagittalDirection == "didNotUse" ~
+                                        "did not use",
+                                      TRUE ~ SagittalDirection)) %>%
+  mutate(SagittalDirection = fct_relevel(factor(SagittalDirection), "forward",
+                                        "backward","mixed preference","did not use")) %>%
+  relocate(Domain) %>%
+  arrange(Domain)
+
+Sagittal.agg %>% 
+  filter(Domain == "time") %>%
+  ggplot(aes(x=SagittalDirection, y=percent)) + 
+  geom_bar(stat = "identity", color="black") + 
+  geom_label(aes(label = n, y = percent + .05)) + 
+  facet_wrap(~Domain, ncol=1) + 
+  scale_x_discrete("Sagittal Axis") + 
+  scale_y_continuous(limits = c(0, .6), expand=c(0,0)) + 
+  # scale_fill_brewer(type = "qual", palette = 4, guide=F) + 
+  theme_classic()
+
+
+ATLAS_combined.geo %>% 
+  filter(str_detect(Authors, "Borod"))
+
+ATLAS_combined.geo %>% 
+  filter(Domain=="time", TopographicDirection=="usedMixedDirectionPreference")
+# Brown 2012 has the wrong citation (citation to Bergen and Chan Lau)
+# Yupno are coded as "mixed" but should be uphill
+
+ATLAS_combined.geo %>% filter(Country == "Papua New Guinea")
+  
+xtabs(~Country, ATLAS_combined.geo)
+```
+
+Plot FoR for Space
+```{r}
+atlas.combined.plot.space1 <- ggplot(data = world) +
+  geom_sf(color="grey70", 
+          # aes(fill=rev(economy)),
+          alpha=0.4, show.legend = F) +
+  geom_point(data=subset(ATLAS_combined.geo, Domain=="space"), 
+             aes(x=lon, y=lat, 
+                 # shape=LateralDirection,
+                 fill=FoR),
+             shape=21,
+             position = position_jitter(height=5, width=5),
+             size = 4,
+             color="black",
+             alpha=.8) +
+  coord_sf(expand=0) + 
+  #facet_wrap(~Domain_label, ncol=1) +
+  scale_x_continuous(name = NULL, limits = c(-150, 160)) + 
+  scale_y_continuous(name = NULL, limits = c(-60, 90)) + 
+  # scale_shape_manual(NULL, values=c(21,24), ) +
+  scale_color_discrete(NULL, guide=F) + 
+  scale_fill_discrete("FoR",
+                      # guide=F
+                      ) + 
+  facet_wrap(~Domain, nrow = 3) + 
+  theme_classic() + 
+  theme(plot.title = element_text(hjust=.5), 
+        panel.grid.major = element_blank(),
+        legend.position='bottom', strip.text = element_text(size=20))
+atlas.combined.plot.space1
+ggsave("plots/ATLAS_space_FoR.pdf",
+       atlas.combined.plot.space1,height = 4, width = 6)
+```
+
+```{r}
+space2.location.plot1 <- ggplot(data = world) +
+  geom_sf(color="grey70", 
+          # aes(fill=rev(economy)),
+          alpha=0.4, show.legend = F) +
+  geom_point(data=subset(ATLAS_space_Databank2.geo), 
+             aes(x=lon, y=lat, 
+                 # shape=LateralDirection,
+                 fill=Language,
+                 size=StudySampleSize), # decide whether to fill in circle
+             shape=21,
+             color="black",
+             alpha=.5) +
+  geom_point(data=subset(ATLAS_space_Databank2.geo), 
+             aes(x=lon, y=lat), # decide whether to fill in circle
+             # shape=21, 
+             fill="black",
+             size=.5,
+             alpha=.5) +
+  coord_sf(expand=0) + 
+  #facet_wrap(~Domain_label, ncol=1) +
+  scale_x_continuous(name = NULL, limits = c(-150, 160)) + 
+  scale_y_continuous(name = NULL, limits = c(-60, 90)) + 
+  # scale_shape_manual(NULL, values=c(21,24), ) +
+  scale_size(guide=F, "sample size", 
+             breaks=c(4, 20,100,500), 
+             range=c(.1,12)) + 
+  # scale_color_discrete(NULL, guide=F) + 
+  scale_fill_discrete(NULL,
+                      # guide=F
+                      ) +
+  # facet_wrap(~Domain, nrow = 3) + 
+  theme_classic() + 
+  theme(plot.title = element_text(hjust=.5), 
+        panel.grid.major = element_blank(),
+        legend.position='bottom', strip.text = element_text(size=20))
+space2.location.plot1
+```
+
+#other domains
+
+```{r}
+# Load number: 
+ATLAS_number_Databank <- read_csv("../ATLAS Data/NUMBER-ATLAS Databank v0.2-April16-2021.csv")
+ATLAS_number_Databank <- ATLAS_number_Databank %>% 
+  subset(is.na(Citation) == F)
+
+# Load time: 
+ATLAS_time_Databank <- read_csv("../ATLAS Data/TIME-ATLAS Databank v0.2-April16-2021.csv")
+ATLAS_time_Databank <- ATLAS_time_Databank %>% 
+  subset(is.na(Citation) == F)
+
+
+ATLAS_time_Databank <- ATLAS_time_Databank %>% 
+  mutate(TotalSampleSize = as.integer(as.character(TotalSampleSize)))
+ATLAS_number_Databank <- ATLAS_number_Databank %>% 
+  mutate(TotalSampleSize = as.integer(as.character(TotalSampleSize)))
+
+ATLAS_combined <- bind_rows(ATLAS_time_Databank, ATLAS_space_Databank2.geo, 
+                            ATLAS_number_Databank)  
+
+n_distinct(ATLAS_combined$Language)
+
+number_domains <- ATLAS_combined %>% 
+  group_by(Language, Domain) %>% 
+  summarize(n=n()) %>% 
+  group_by(Language) %>% 
+  summarize(totalstudies = sum(n), 
+            n_domains = n())
+
+number_domains %>% 
+  ggplot(aes(x=round(n_domains))) +
+  geom_histogram(bins = 3) + 
+  scale_y_continuous(expand=c(0,0)) + 
+  scale_x_continuous("Number of Domains Studied") + 
+  theme_classic(base_size = 30) + theme()
+
+number_domains %>% 
+  subset(n_domains == 3)
+
+xtabs(~Scale + FoR, ATLAS_space_Databank2.geo)
+```
+
+```{r}
+xtabs(~Country, )
+```

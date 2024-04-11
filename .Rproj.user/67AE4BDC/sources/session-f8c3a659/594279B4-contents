@@ -1,0 +1,71 @@
+---
+title: "ATLAS_CogSci"
+author: "TylerMarghetis"
+date: "7/27/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse) 
+library(ggmap) 
+library(sf)
+library("rnaturalearth")
+library("rnaturalearthdata")
+library(cowplot)
+library(brms)
+```
+
+# Load geolocated data 
+```{r}
+rm(list = ls())
+ATLAS_space_geo <- read_csv("../ATLAS Data/ATLAS_space_geo.csv")
+ATLAS_space_geo <- ATLAS_space_geo %>% filter(Year <= 2020)
+```
+
+## Mutate variables
+```{r}
+communicativeTasks <- c("LanguageProductionSpoken","LanguageProductionWritten",
+                        "GesturePrompted", "GestureSpontaneous",
+                        "ForcedChoiceDescription")
+gestureTasks <- c("LanguageProductionSpoken","LanguageProductionWritten",
+                  "GesturePrompted", "GestureSpontaneous",
+                  "ForcedChoiceDescription")
+languageTasks <- c("LanguageProductionSpoken","LanguageProductionWritten",
+                   "ForcedChoiceDescription")
+
+ATLAS_space_geo <- ATLAS_space_geo %>%
+  mutate(UrbanRural2 = case_when(UrbanRural == "rural/urbans" ~ "rural",
+                                 UrbanRural == "urbans" ~ "urban (small)",
+                                 UrbanRural == "urbanl" ~ "urban (large)",
+                                 TRUE ~ UrbanRural),
+         UrbanRural2 = ordered(UrbanRural2, levels = c("rural","urban (small)","urban (large)"))) %>% 
+  mutate(urbanRuralNum = case_when(UrbanRural == "rural" ~ 0, 
+                                   UrbanRural == "rural/urbans" ~ .5, 
+                                   UrbanRural == "urbans" ~ 1, 
+                                   UrbanRural == "urbanl" ~ 2)) %>% 
+  mutate(scaleNum = case_when(Scale == "small" ~ 0, 
+                              Scale == "medium; small" ~ .5, 
+                              Scale == "medium" ~ 1, 
+                              Scale == "large" ~ 2,
+                              TRUE ~ NA),
+         FoR_is_allo = FoR %in% c("allo","both"),
+         FoR_is_ego = FoR %in% c("ego","both"),) %>% 
+  mutate(taskIsCommunicative = DependentMeasurePrimary %in% communicativeTasks,
+         taskIsGestural = DependentMeasurePrimary %in% gestureTasks,
+         taskIsLinguistic = DependentMeasurePrimary %in% languageTasks)
+```
+
+# Pairwise distances
+```{r}
+ATLAS_space_geo <- ATLAS_space_geo %>%
+  rowwise() %>%
+  mutate(p = list(st_point(c(lat,lon))))
+
+
+pair_dist <- st_distance(st_sfc(ATLAS_space_geo$p), st_sfc(ATLAS_space_geo$p)) 
+as.data.frame(pair_dist) %>% 
+  mutate(row1 = 1:n()) %>% 
+  pivot_longer(names_to = "row2", values_to = "dist", cols = -row1) %>% 
+  mutate(row2 = as.numeric(gsub(pattern = "V",replacement = "", x = row2)))
+```
