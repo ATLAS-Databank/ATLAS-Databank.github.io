@@ -238,7 +238,7 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">My Website</a>
+      <a class="navbar-brand" href="index.html">ATLAS</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -301,49 +301,6 @@ class="section level1">
 <h1>Test Sites by Continent</h1>
 <iframe src="plotly_hist2.html" width="950" height="452" style="margin-bottom: 20px;">
 </iframe>
-<pre class="r"><code>library(ggplot2)
-library(sf)</code></pre>
-<pre><code>## Linking to GEOS 3.11.2, GDAL 3.8.2, PROJ 9.3.1; sf_use_s2() is TRUE</code></pre>
-<pre class="r"><code>library(readr)
-library(plotly)</code></pre>
-<pre><code>## 
-## Attaching package: &#39;plotly&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
-## 
-##     last_plot</code></pre>
-<pre><code>## The following object is masked from &#39;package:stats&#39;:
-## 
-##     filter</code></pre>
-<pre><code>## The following object is masked from &#39;package:graphics&#39;:
-## 
-##     layout</code></pre>
-<pre class="r"><code>library(rnaturalearth)
-
-world &lt;- ne_countries(scale = &quot;medium&quot;, returnclass = &quot;sf&quot;) # get map
-ATLAS_space_Databank_locations &lt;- read_csv(&quot;../../ATLAS Data/ATLAS_space_Databank_locations.csv&quot;)</code></pre>
-<pre><code>## Rows: 84 Columns: 4</code></pre>
-<pre><code>## ── Column specification ────────────────────────────────────────────────────────
-## Delimiter: &quot;,&quot;
-## chr (2): StudyLocation, continent
-## dbl (2): lat, lon
-## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<pre class="r"><code>map &lt;- ggplot(data = world) +
-  geom_sf(color = &quot;grey70&quot;, alpha = 0.4) +
-  geom_point(data = ATLAS_space_Databank_locations, aes(x = lon, y = lat), alpha = 0.8, color = &#39;black&#39;) +
-  geom_point(data = ATLAS_space_Databank_locations, aes(x = lon, y = lat), alpha = 1, color = &#39;black&#39;, fill = NA) +
-  coord_sf(expand = 0) +
-  scale_x_continuous(name = NULL, limits = c(-180, 180)) +
-  scale_y_continuous(name = NULL, limits = c(-60, 90)) +
-  theme_bw() +
-  theme(plot.title = element_text(hjust = 0.5),
-        panel.grid.major = element_blank(),
-        legend.position = &quot;bottom&quot;,
-        strip.text = element_text(size = 20))
-
-# Save the plot as an image
-ggsave(&quot;index_map.png&quot;, plot = map, width = 10, height = 7)</code></pre>
 </div>
 
 

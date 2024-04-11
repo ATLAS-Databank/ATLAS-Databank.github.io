@@ -1,0 +1,21 @@
+---
+title: "figures"
+output: html_document
+---
+<style type="text/css">
+  .title {
+    display: none;
+  }
+    
+</style>
+---
+
+# Distribution of Sample Size by Language
+<iframe src="space.location.plot.html" width="950" height="452" style="margin-bottom: 20px;"></iframe>
+# Task Type Count
+<iframe src="plotly_hist3.html" width="950" height="452" style="margin-bottom: 20px;"></iframe>
+# Preferred FoR Count
+<iframe src="plotly_hist.html" width="950" height="452" style="margin-bottom: 20px;"></iframe>
+# Test Sites by Continent
+<iframe src="plotly_hist2.html" width="950" height="452" style="margin-bottom: 20px;"></iframe>
+
