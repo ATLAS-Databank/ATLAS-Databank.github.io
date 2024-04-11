@@ -2,29 +2,84 @@
 title: "The Team"
 output: html_document
 ---
-<style type="text/css">
-  .title {
+<style>
+.title {
     display: none;
-  }
-    
+}
+
+.image-grid {
+  margin-left: 0px;
+}
+
+.leadname {
+  float: left;
+  width: 50%;
+  padding: 3px;
+  text-align: center;
+}
+
+.row::after {
+  content: "";
+  clear: both
+  display: table;
+}
+
+.image-grid {
+  margin-left: 0px;
+}
+
+.leadname img {
+    display: block; /* Make the image a block element for centering */
+    margin: 0 auto; /* Center-align the image horizontally */
+    padding-bottom: 3px;
+    border-radius: 5px;
+}
+
 </style>
 
-# Lead Investigators
-Tyler Marghetis
-Kevin Holmes
+<h1 style="text-align: center;">Lead Investigators</h1>
 
-# Coding Coordinator
-Alyssa Ortega
+<div class= "image-grid">
+<div class= "row">
+<div class="leadname">
+  <img src="images/Tyler_image.jpg" alt="photo" width= "240" height="300" >
+  <h3>[Dr. Tyler Marghetis](https://www.tylermarghetis.com/)</h3>
+  <h5> University of California, Merced </h5>
+  <h5> tmarghetis@ucmerced.edu </h5>
+  </div>
+<div class="leadname">
+  <img src="images/Kevin_image.jpg" alt="photo" width= "240" height="300" >
+  <h3>[Dr. Kevin Holmes](https://www.reed.edu/psychology/faculty/holmes.html)</h3>
+  <h5> Reed College </h5>
+  <h5> kjholmes@reed.edu </h5>
+  </div>  
+</div>
+</div>
 
-# Coders
-Maya Star-Lack
-Benjamin Robbins
-Ricardo Alfonso
-Saloni Naik
-Axel Jacobo
-Kaushik Ram
-Harini Muralidharan
-Julia Ton
-Leslie Flores
-Isabella Dohnke
-Sandra Chacon
+
+<h1 style="text-align: center;">Coding Coordinator</h1>
+
+<div class= "image-grid">
+<div class= "row">
+<div class="leadname">
+  <img src="images/Alyssa_image.jpg" alt="photo" width= "232" height="250" >
+  <h3>[Alyssa Ortega](https://www.alyssavortega.github.io)</h3>
+  <h5> University of California, Merced </h5>
+  <h5> aortega59@ucmerced.edu </h5>
+  </div> 
+</div>
+</div> 
+
+<h1 style="text-align: center;">Coders</h1>
+
+<h5>Maya Star-Lack</h5>
+<h5>Benjamin Robbins</h5>
+<h5>Ricardo Alfonso</h5>
+<h5>Saloni Naik</h5>
+<h5>Axel Jacobo</h5>
+<h5>Kaushik Ram</h5>
+<h5>Harini Muralidharan</h5>
+<h5>Julia Ton</h5>
+<h5>Leslie Flores</h5>
+<h5>Isabella Dohnke</h5>
+<h5>Sandra Chacon</h5>

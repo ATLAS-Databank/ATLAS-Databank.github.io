@@ -2,27 +2,45 @@
 title: "Literature"
 output: html_document
 ---
-
 <style type="text/css">
   .title {
     display: none;
   }
 </style>
 
+
+<h1 style="text-align: center;">The Literature</h1>
+<div class="description" style="padding-top: 3px; padding-bottom: 10px;">
+<h5>When searching the literature, possible search terms included “spatial frame(s) of reference.” This term was paired with the name of a specific country to generate cross-cultural studies (e.g., “germany”). We used search engines like PsycInfo and Google Scholar. Additionally, when we identified a certain researcher who had contributed many relevant works, searched directly on their Google Scholar profile and their website to attempt to find more papers. We only include papers if they studied the use of spatial frames of reference in at least one non-English-speaking sample.</h5>
+</div>
+
 ```{r, echo = FALSE}
+## creation of dataset with unique citations and specific cols
 # data2 <- read.csv("ATLASDatabankv0.2-SPACEFinalized.csv")
 # 
 # data2 <- data2[!duplicated(data2$Citation), ]
 # data2
 # 
-# write.csv(data2, "unique_citations.csv", row.names = FALSE)
 # 
+# library(dplyr)
+# data2 <- data2 %>% 
+#   select(Authors, Year, Title, Venue, VenueType, Citation, ResearchQuestion)
+# write.csv(data2, "unique_citations.csv", row.names = FALSE)
 
 ```
 
-```{r, echo = FALSE, results='asis'}
+```{r, echo=FALSE}
 data2 <- read.csv("unique_citations.csv")
-for (i in seq_along(data2$Citation)) {
-  cat(paste(i, ". ", data2$Citation[i], "\n", sep = ""))
-}
+
+library(DT)
+datatable(data2, filter = 'top')
+```
+
+
+```{r, echo=FALSE}
+##output is a list of citations
+# data2 <- read.csv("unique_citations.csv")
+# for (i in seq_along(data2$Citation)) {
+#   cat(paste(i, ". ", data2$Citation[i], "\n", sep = ""))
+# }
 ```
