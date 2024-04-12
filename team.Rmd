@@ -63,7 +63,7 @@ output: html_document
 <div class= "row">
 <div class="leadname">
   <img src="images/Alyssa_image.jpg" alt="photo" width= "232" height="250" >
-  <h3>[Alyssa Ortega](https://www.alyssavortega.github.io)</h3>
+  <h3>[Alyssa Ortega](https://alyssavortega.github.io/)</h3>
   <h5> University of California, Merced </h5>
   <h5> aortega59@ucmerced.edu </h5>
   </div> 
