@@ -1,3 +1,0 @@
-"0","SocialNetworks_metadata <- SocialNetworks_metadata %>%"
-"0","  mutate(Figure_num = as.numeric(Figure),"
-"0","         Figure_fac = as.factor(Figure_num))"

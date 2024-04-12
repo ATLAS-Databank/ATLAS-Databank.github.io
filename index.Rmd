@@ -67,7 +67,7 @@ img{
 
 <div class="footer">
   <h5> 
-  Our data and coding manual are now available for the Space domain while Time and Number are currently in the works! You can view and download them on our [Open Science Framework](https://osf.io/83rj2/?view_only=f9c1c243cff14b499ab9b88aac9aca37).
+  Our data and coding manual are  available for the Space domain while Time and Number are currently in the works! You can view and download them now on our [Open Science Framework](https://osf.io/83rj2/?view_only=f9c1c243cff14b499ab9b88aac9aca37).
   </h5>
 </div>
 

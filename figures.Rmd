@@ -10,12 +10,184 @@ output: html_document
 </style>
 ---
 
-# Distribution of Sample Size by Language
+
+```{r, echo = FALSE}
+# knitr::opts_chunk$set(echo = TRUE)
+# 
+# library(ggplot2)
+# library(sf)
+# library(readr)
+# library(plotly)
+# library(rnaturalearth)
+# 
+# world <- ne_countries(scale = "medium", returnclass = "sf") # get map
+# ATLAS_space_Databank_locations <- read_csv("../../ATLAS Data/ATLAS_space_Databank_locations.csv")
+# 
+# map <- ggplot(data = world) +
+#   geom_sf(color = "grey70", alpha = 0.4) +
+#   geom_point(data = ATLAS_space_Databank_locations, aes(x = lon, y = lat), alpha = 0.8, color = 'black') +
+#   geom_point(data = ATLAS_space_Databank_locations, aes(x = lon, y = lat), alpha = 1, color = 'black', fill = NA) +
+#   coord_sf(expand = 0) +
+#   scale_x_continuous(name = NULL, limits = c(-180, 180)) +
+#   scale_y_continuous(name = NULL, limits = c(-60, 90)) +
+#   theme_bw() +
+#   theme(plot.title = element_text(hjust = 0.5),
+#         panel.grid.major = element_blank(),
+#         legend.position = "bottom",
+#         strip.text = element_text(size = 20))
+# 
+# plotly_map <- ggplotly(map)
+# 
+# plotly_map
+# ```
+
+# 
+```
+
+```{r, echo = FALSE}
+# knitr::opts_chunk$set(echo = TRUE)
+# library(ggplot2)
+# library(sf)
+# library(readr)
+# library(plotly)
+# library(rnaturalearth)
+# 
+# world <- ne_countries(scale = "medium", returnclass = "sf") # get map
+# ATLAS_space_geo <- read_csv("../../ATLAS Data/ATLAS_space_geo.csv")
+# 
+# space.location.plot <- ggplot(data = world) +
+#   geom_sf(color="grey70",
+#           size=1,
+#           # aes(fill=rev(economy)),
+#           alpha=0.4, show.legend = FALSE) +
+#   geom_point(data=subset(ATLAS_space_geo),
+#              aes(x=lon, y=lat,
+#                  # shape=LateralDirection,
+#                  fill=Language,
+#                  size=StudySampleSize), # decide whether to fill in circle
+#              shape=21,
+#              color="black",
+#              alpha=.5) +
+#   geom_point(data=subset(ATLAS_space_geo),
+#              aes(x=lon, y=lat), # decide whether to fill in circle
+#              # shape=21,
+#              fill="black",
+#              size=.5,
+#              alpha=.5) +
+#   coord_sf(expand=0,label_graticule = "") +
+#   #facet_wrap(~Domain_label, ncol=1) +
+#   scale_x_continuous(name = "", limits = c(-180, 180), breaks = NULL) +
+#   scale_y_continuous(name = "", limits = c(-60, 90), breaks = NULL) +
+#   # scale_shape_manual(NULL, values=c(21,24), ) +
+#   scale_size("Language",
+#              # guide=F,
+#              breaks=c(5, 50, 500),
+#              range=c(.1,12)) +
+#   # scale_color_discrete(NULL, guide=F) +
+#   scale_fill_discrete(NULL,
+#                       guide=F
+#   ) +
+#   # facet_wrap(~Domain, nrow = 3) +
+#   theme_bw(base_size = 20) +
+#   theme(plot.title = element_text(hjust=.5),
+#         panel.grid.major = element_blank(),
+#         axis.ticks = element_blank(),
+#         legend.position='bottom',
+#         legend.text = element_text(size = 12),
+#         strip.text = element_text(size=20))
+# space.location.plot <- ggplotly(space.location.plot)
+# space.location.plot
+# 
+# htmlwidgets::saveWidget(space.location.plot, "space.location.plot.html", selfcontained = TRUE)
+
+```
+
+```{r, echo = FALSE}
+# library(dplyr)
+# library(plotly)
+# 
+# data <- read.csv("../../ATLAS Data/ATLAS_space_Databank_locations.csv")
+# 
+# # Create an interactive histogram broken down by continent
+# plotly_hist <- function(data) {
+#   # Aggregate data by continent
+#   continent_counts <- data %>%
+#     group_by(continent) %>%
+#     summarise(count = n())
+# 
+# plot <- plot_ly(data = continent_counts, x = ~continent, y = ~count, type = "bar") %>%
+#   layout(xaxis = list(title = "Continent"),
+#          yaxis = list(title = "Count"))
+# 
+#   return(plot)
+# }
+# 
+# continent_hist <- plotly_hist(data)
+# 
+# htmlwidgets::saveWidget(continent_hist, "continent_hist.html", selfcontained = TRUE)
+
+```
+
+```{r, echo = FALSE}
+# knitr::opts_chunk$set(echo = TRUE)
+# library(dplyr)
+# library(plotly)
+# 
+# data <- read.csv("../../ATLAS Data/ATLAS_space_geo.csv")
+# 
+# plotly_hist <- function(data) {
+#   FoR_counts <- data %>%
+#     group_by(Preferred_FoR) %>%
+#     summarise(count = n())
+# 
+#   plot <- plot_ly(data = FoR_counts, x = ~Preferred_FoR, y = ~count, type = "bar") %>%
+#     layout(xaxis = list(title = "Preferred FoR"),
+#            yaxis = list(title = "Numer of Groups Sampled"))
+# 
+#   return(plot)
+# }
+# 
+# FoR_hist <- plotly_hist(data)
+# 
+# htmlwidgets::saveWidget(FoR_hist, "FoR_hist.html", selfcontained = TRUE)
+
+
+```
+
+```{r, echo = FALSE}
+# knitr::opts_chunk$set(echo = TRUE)
+# library(dplyr)
+# library(tidyr)
+# library(plotly)
+# 
+# data <- read.csv("../../ATLAS Data/ATLAS_space_geo.csv")
+# 
+# plotly_hist <- function(data) {
+#   TaskType_counts <- data %>%
+#     separate_rows(DependentMeasurePrimary, sep = "\\+") %>%
+#     mutate(DependentMeasurePrimary = trimws(DependentMeasurePrimary)) %>%
+#     group_by(DependentMeasurePrimary) %>%
+#     summarise(count = n())
+# 
+#   plot <- plot_ly(data = TaskType_counts, x = ~DependentMeasurePrimary, y = ~count, type = "bar") %>%
+#     layout(xaxis = list(title = "Task Type"),
+#            yaxis = list(title = "Count"))
+# 
+#   return(plot)
+# }
+# 
+# taskcount_hist <- plotly_hist(data)
+# 
+# htmlwidgets::saveWidget(taskcount_hist, "taskcount_hist.html", selfcontained = TRUE)
+```
+
+
+# Sample Size and Language Across the Globe
 <iframe src="space.location.plot.html" width="950" height="452" style="margin-bottom: 20px;"></iframe>
 # Task Type Count
-<iframe src="plotly_hist3.html" width="950" height="452" style="margin-bottom: 20px;"></iframe>
+<iframe src="taskcount_hist.html" width="950" height="452" style="margin-bottom: 20px;"></iframe>
 # Preferred FoR Count
-<iframe src="plotly_hist.html" width="950" height="452" style="margin-bottom: 20px;"></iframe>
+<iframe src="FoR_hist.html" width="950" height="452" style="margin-bottom: 20px;"></iframe>
 # Test Sites by Continent
-<iframe src="plotly_hist2.html" width="950" height="452" style="margin-bottom: 20px;"></iframe>
+<iframe src="continent_hist.html" width="950" height="452" style="margin-bottom: 20px;"></iframe>
 
