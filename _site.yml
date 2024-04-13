@@ -5,7 +5,7 @@ navbar:
     - text: "Home"
       href: index.html
     - text: "Dataset"
-      href: dataset.html
+      href: databank.html
     - text: "Figures"
       href: figures.html
     - text: "Literature"

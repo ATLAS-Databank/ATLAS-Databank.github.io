@@ -1,5 +1,5 @@
 ---
-title: "Dataset"
+title: "Datbank"
 output: html_document
 ---
 
@@ -9,7 +9,7 @@ output: html_document
   }
 </style>
 
-<h1 style="text-align: center;">The Dataset</h1>
+<h1 style="text-align: center;">The Databank</h1>
 <div class="description" style="padding-top: 3px; padding-bottom: 10px;">
 <h5>From each paper, each task performed by a different cultural group is entered in ATLAS as its own row. A task consists of a different procedure or outcome variable. A group differs if they speak a different language, live in a different place, etc.  
 
