@@ -4,7 +4,7 @@ navbar:
   left:
     - text: "Home"
       href: index.html
-    - text: "Dataset"
+    - text: "Databank"
       href: databank.html
     - text: "Figures"
       href: figures.html
