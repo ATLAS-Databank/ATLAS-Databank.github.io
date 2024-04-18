@@ -1,5 +1,5 @@
 ---
-title: "Interactive Figures"
+title: "Figures"
 output: html_document
 ---
 <style type="text/css">
