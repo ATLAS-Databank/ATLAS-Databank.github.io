@@ -20,6 +20,6 @@ output: html_document
 </style>
 
 <h4 style="text-align: center;">
-If you would like to recommend an addition to the databank, please complete our Qualtrics article suggestion form [here](https://ucmerced.az1.qualtrics.com/jfe/form/SV_8HSBoLNdQ7f02V0). </h4>
+If you would like to recommend an addition to the databank, please complete our [Literature Suggestion Form](https://ucmerced.az1.qualtrics.com/jfe/form/SV_8HSBoLNdQ7f02V0). </h4>
 
 <img src= "images/fieldsite.FOR.plot.png" alt="photo"> <!-- map image -->
