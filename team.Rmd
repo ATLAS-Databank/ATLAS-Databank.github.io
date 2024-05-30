@@ -1,67 +1,61 @@
 ---
 title: "The Team"
+author: "Alyssa Ortega"
+date: "2024-03-14"
 output: html_document
 ---
 <style>
 .title {
-    display: none;
+    display: none; /* hide title from output */
 }
 
-.image-grid {
-  margin-left: 0px;
+.author {
+    display: none; /* hide author from output */
 }
 
-.leadname {
-  float: left;
-  width: 50%;
-  padding: 3px;
-  text-align: center;
+.date{
+    display: none; /* hide date from output */
 }
 
-.row::after {
-  content: "";
-  clear: both
-  display: table;
+.name { /* creates row of image(s) */
+  float: left; /* aligns images left to right rather than vertically*/
+  width: 50%; /* spaces 2 images evenly in the row*/
+  text-align: center; /* align text (name, affiliation, email) to center of images */
+  padding: 3px; /* adjust space between image-grid & headings */
 }
 
-.image-grid {
-  margin-left: 0px;
-}
-
-.leadname img {
-    display: block; /* Make the image a block element for centering */
-    margin: 0 auto; /* Center-align the image horizontally */
-    padding-bottom: 3px;
-    border-radius: 5px;
+.name img {
+    display: block; /* make the image a block element for centering */
+    margin: 0 auto; /* center-align the image horizontally */
+    padding-bottom: 3px; /* adjust space between images and text (name, affiliation, email) */
+    border-radius: 5px; /* round corners of images in grid */
 }
 
 </style>
 
 <h1 style="text-align: center;">Lead Investigators</h1>
 
-<div class= "image-grid">
-<div class= "row">
-<div class="leadname">
+<div class= "image-grid"> <!-- section for 2 top images & text -->
+<div class="name"> <!-- split each person into its their section for the grid rule to work & to keep text aligned w correct image -->
   <img src="images/Tyler_image.jpg" alt="photo" width= "240" height="300" >
   <h3>[Dr. Tyler Marghetis](https://www.tylermarghetis.com/)</h3>
   <h5> University of California, Merced </h5>
   <h5> tmarghetis@ucmerced.edu </h5>
   </div>
-<div class="leadname">
+<div class="name"> <!-- split each person into its their section for the grid rule to work & to keep text aligned w correct image -->
   <img src="images/Kevin_image.jpg" alt="photo" width= "240" height="300" >
   <h3>[Dr. Kevin Holmes](https://www.reed.edu/psychology/faculty/holmes.html)</h3>
   <h5> Reed College </h5>
   <h5> kjholmes@reed.edu </h5>
   </div>  
 </div>
-</div>
 
 
 <h1 style="text-align: center;">Coding Coordinator</h1>
 
-<div class= "image-grid">
-<div class= "row">
-<div class="leadname">
+<div class= "image-grid"> <!-- section for coding coordinator image & text -->
+<div class= "row"> <!-- separates coding coordinator section from coder section -->
+<div class="name"> <!-- split each person into its their section for the grid rule to work & to keep text aligned w correct image -->
   <img src="images/Alyssa_image.jpg" alt="photo" width= "232" height="250" >
   <h3>[Alyssa Ortega](https://alyssavortega.github.io/)</h3>
   <h5> University of California, Merced </h5>

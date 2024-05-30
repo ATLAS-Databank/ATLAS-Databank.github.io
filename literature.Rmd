@@ -1,46 +1,43 @@
 ---
 title: "Literature"
+author: "Alyssa Ortega"
+date: "2024-03-14"
 output: html_document
 ---
 <style type="text/css">
-  .title {
-    display: none;
-  }
+.title {
+    display: none; /* hide title from output */
+}
+
+.author {
+    display: none; /* hide author from output */
+}
+
+.date{
+    display: none; /* hide date from output */
+}
 </style>
 
 
 <h1 style="text-align: center;">The Literature</h1>
 <div class="description" style="padding-top: 3px; padding-bottom: 10px;">
-<h5>When searching the literature, possible search terms included “spatial frame(s) of reference.” This term was paired with the names of specific countries to generate cross-cultural studies (e.g., “germany”). We used search engines like PsycInfo and Google Scholar. Additionally, when we identified a certain researcher who had contributed many relevant works, we searched directly on their Google Scholar profile and their website in an attempt to find more papers. We only included papers if they studied the use of spatial frames of reference in at least one non-English-speaking sample.</h5>
+<h5>When searching the literature, possible search terms included “spatial frame(s) of reference.” This term was paired with the names of specific countries to generate cross-cultural studies (e.g., “germany”). We used search engines like PsycInfo and Google Scholar. Additionally, when we identified a certain researcher who had contributed many relevant works, we searched directly on their Google Scholar profile and their website in an attempt to find more papers. We only included papers if they studied the use of spatial frames of reference in at least one non-English-speaking sample.</h5> <!-- literature search description -->
 </div>
 
 ```{r, echo = FALSE}
-## creation of dataset with unique citations and specific cols
-# data2 <- read.csv("ATLASDatabankv0.2-SPACEFinalized.csv")
+# # creation of dataset with unique citations and specific cols
 # 
-# data2 <- data2[!duplicated(data2$Citation), ]
-# data2
+# data2 <- read.csv("ATLASDatabankv0.2-SPACEFinalized.csv") #read in dataset
+# data2 <- data2[!duplicated(data2$Citation), ] # get rid of duplicate citations
 # 
-# 
-# library(dplyr)
+# library(dplyr) # load library
 # data2 <- data2 %>% 
-#   select(Authors, Year, Title, Venue, VenueType, Citation, ResearchQuestion)
-# write.csv(data2, "unique_citations.csv", row.names = FALSE)
-
+#   select(Authors, Year, Title, Venue, VenueType, Citation, ResearchQuestion) # only include cols with these names
+# write.csv(data2, "unique_citations.csv", row.names = FALSE) #save new csv with unique citations only
 ```
 
 ```{r, echo=FALSE}
-data2 <- read.csv("unique_citations.csv")
-
-library(DT)
-datatable(data2, filter = 'top')
-```
-
-
-```{r, echo=FALSE}
-##output is a list of citations
-# data2 <- read.csv("unique_citations.csv")
-# for (i in seq_along(data2$Citation)) {
-#   cat(paste(i, ". ", data2$Citation[i], "\n", sep = ""))
-# }
+data2 <- read.csv("unique_citations.csv") #read in new csv created above
+library(DT) #load library
+datatable(data2, filter = 'top', options = list(pageLength = 10, scrollX = TRUE), width = "100%")  #output searchable table
 ```

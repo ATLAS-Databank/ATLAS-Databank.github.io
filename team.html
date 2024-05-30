@@ -9,7 +9,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="Alyssa Ortega" />
 
+<meta name="date" content="2024-03-14" />
 
 <title>The Team</title>
 
@@ -243,7 +245,7 @@ $(document).ready(function () {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">Home</a>
+  <a href="home.html">Home</a>
 </li>
 <li>
   <a href="databank.html">Databank</a>
@@ -256,6 +258,9 @@ $(document).ready(function () {
 </li>
 <li>
   <a href="team.html">The Team</a>
+</li>
+<li>
+  <a href="SuggestAnArticle.html">Suggest an Article</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -270,41 +275,37 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">The Team</h1>
+<h4 class="author">Alyssa Ortega</h4>
+<h4 class="date">2024-03-14</h4>
 
 </div>
 
 
 <style>
 .title {
-    display: none;
+    display: none; /* hide title from output */
 }
 
-.image-grid {
-  margin-left: 0px;
+.author {
+    display: none; /* hide author from output */
 }
 
-.leadname {
-  float: left;
-  width: 50%;
-  padding: 3px;
-  text-align: center;
+.date{
+    display: none; /* hide date from output */
 }
 
-.row::after {
-  content: "";
-  clear: both
-  display: table;
+.name { /* creates row of image(s) */
+  float: left; /* aligns images left to right rather than vertically*/
+  width: 50%; /* spaces 2 images evenly in the row*/
+  text-align: center; /* align text (name, affiliation, email) to center of images */
+  padding: 3px; /* adjust space between image-grid & headings */
 }
 
-.image-grid {
-  margin-left: 0px;
-}
-
-.leadname img {
-    display: block; /* Make the image a block element for centering */
-    margin: 0 auto; /* Center-align the image horizontally */
-    padding-bottom: 3px;
-    border-radius: 5px;
+.name img {
+    display: block; /* make the image a block element for centering */
+    margin: 0 auto; /* center-align the image horizontally */
+    padding-bottom: 3px; /* adjust space between images and text (name, affiliation, email) */
+    border-radius: 5px; /* round corners of images in grid */
 }
 
 </style>
@@ -312,8 +313,9 @@ $(document).ready(function () {
 Lead Investigators
 </h1>
 <div class="image-grid">
-<div class="row">
-<div class="leadname">
+<!-- section for 2 top images & text -->
+<div class="name">
+<!-- split each person into its their section for the grid rule to work & to keep text aligned w correct image -->
 <img src="images/Tyler_image.jpg" alt="photo" width= "240" height="300" >
 <h3>
 <a href="https://www.tylermarghetis.com/">Dr. Tyler Marghetis</a>
@@ -326,7 +328,8 @@ University of California, Merced
 class="email">tmarghetis@ucmerced.edu</a>
 </h5>
 </div>
-<div class="leadname">
+<div class="name">
+<!-- split each person into its their section for the grid rule to work & to keep text aligned w correct image -->
 <img src="images/Kevin_image.jpg" alt="photo" width= "240" height="300" >
 <h3>
 <a href="https://www.reed.edu/psychology/faculty/holmes.html">Dr. Kevin
@@ -340,13 +343,15 @@ Reed College
 </h5>
 </div>
 </div>
-</div>
 <h1 style="text-align: center;">
 Coding Coordinator
 </h1>
 <div class="image-grid">
+<!-- section for coding coordinator image & text -->
 <div class="row">
-<div class="leadname">
+<!-- separates coding coordinator section from coder section -->
+<div class="name">
+<!-- split each person into its their section for the grid rule to work & to keep text aligned w correct image -->
 <img src="images/Alyssa_image.jpg" alt="photo" width= "232" height="250" >
 <h3>
 <a href="https://alyssavortega.github.io/">Alyssa Ortega</a>

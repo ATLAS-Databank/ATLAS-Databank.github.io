@@ -1,11 +1,21 @@
 ---
 title: "Figures"
+author: "Alyssa Ortega"
+date: "2024-03-14"
 output: html_document
 ---
 <style type="text/css">
-  .title {
-    display: none;
-  }
+.title {
+    display: none; /* hide title from output */
+}
+
+.author {
+    display: none; /* hide author from output */
+}
+
+.date{
+    display: none; /* hide date from output */
+}
     
 </style>
 ---
@@ -98,7 +108,7 @@ output: html_document
 # space.location.plot <- ggplotly(space.location.plot)
 # space.location.plot
 # 
-# htmlwidgets::saveWidget(space.location.plot, "space.location.plot.html", selfcontained = TRUE)
+# htmlwidgets::saveWidget(space.location.plot, "space.location.plot.html", selfcontained = TRUE) #save as .html to make interactive
 
 ```
 
@@ -124,7 +134,7 @@ output: html_document
 # 
 # continent_hist <- plotly_hist(data)
 # 
-# htmlwidgets::saveWidget(continent_hist, "continent_hist.html", selfcontained = TRUE)
+# htmlwidgets::saveWidget(continent_hist, "continent_hist.html", selfcontained = TRUE) #save as .html to make interactive
 
 ```
 
@@ -149,7 +159,7 @@ output: html_document
 # 
 # FoR_hist <- plotly_hist(data)
 # 
-# htmlwidgets::saveWidget(FoR_hist, "FoR_hist.html", selfcontained = TRUE)
+# htmlwidgets::saveWidget(FoR_hist, "FoR_hist.html", selfcontained = TRUE) #save as .html to make interactive
 
 
 ```
@@ -178,16 +188,20 @@ output: html_document
 # 
 # taskcount_hist <- plotly_hist(data)
 # 
-# htmlwidgets::saveWidget(taskcount_hist, "taskcount_hist.html", selfcontained = TRUE)
+# htmlwidgets::saveWidget(taskcount_hist, "taskcount_hist.html", selfcontained = TRUE) #save as .html to make interactive
 ```
 
 
+<!-- embed plots below using iframe. -->
 # Sample Size and Language Across the Globe
 <iframe src="space.location.plot.html" width="950" height="452" style="margin-bottom: 20px;"></iframe>
+
 # Task Type Count
 <iframe src="taskcount_hist.html" width="950" height="452" style="margin-bottom: 20px;"></iframe>
+
 # Preferred FoR Count
 <iframe src="FoR_hist.html" width="950" height="452" style="margin-bottom: 20px;"></iframe>
+
 # Test Sites by Continent
 <iframe src="continent_hist.html" width="950" height="452" style="margin-bottom: 20px;"></iframe>
 

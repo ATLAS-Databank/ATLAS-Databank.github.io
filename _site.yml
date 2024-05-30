@@ -1,10 +1,10 @@
 name: "my-website"
 navbar:
-  title: "ATLAS"
+  title: "ATLAS" # title beside navbar
   left:
-    - text: "Home"
-      href: index.html
-    - text: "Databank"
+    - text: "Home" #text displayed for the Home link. same for others below
+      href: home.html #URL of the Home page. same for others below
+    - text: "Databank"       
       href: databank.html
     - text: "Figures"
       href: figures.html
@@ -12,7 +12,8 @@ navbar:
       href: literature.html
     - text: "The Team"
       href: team.html
-      
+    - text: "Suggest an Article"
+      href: SuggestAnArticle.html
 output:
   html_document:
-    theme: yeti
+    theme: yeti #change theme using Bootswatch (options for the version downloaded here are "default", "bootstrap", "cerulean", "cosmo", "darkly", "flatly", "journal", "lumen", "paper", "readable", "sandstone", "simplex", "spacelab", "united", "yeti")

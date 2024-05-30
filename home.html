@@ -13,7 +13,7 @@
 
 <meta name="date" content="2024-03-14" />
 
-<title>Figures</title>
+<title>Home</title>
 
 <script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -274,14 +274,14 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Figures</h1>
+<h1 class="title toc-ignore">Home</h1>
 <h4 class="author">Alyssa Ortega</h4>
 <h4 class="date">2024-03-14</h4>
 
 </div>
 
 
-<style type="text/css">
+<style>
 .title {
     display: none; /* hide title from output */
 }
@@ -293,30 +293,63 @@ $(document).ready(function () {
 .date{
     display: none; /* hide date from output */
 }
-    
+
+.image {  /* creates row of 3 top images*/
+  float: left; /* aligns images left to right rather than vertically*/
+  width: 33%; /* spaces 3 images evenly in the row*/
+}
+
+.image img { 
+    display: block;   /* make the image a block element for centering */
+    margin: 0 auto;   /* center-align the image horizontally */
+    border-radius: 2px; /* round corners of images in grid */
+}
+  
+.footer {
+  background-color: #ECF0F1; /* gray background color */
+  text-align: center; /* center-align text */
+}
+
 </style>
-<hr />
-<!-- embed plots below using iframe. -->
-<div id="sample-size-and-language-across-the-globe"
-class="section level1">
-<h1>Sample Size and Language Across the Globe</h1>
-<iframe src="space.location.plot.html" width="950" height="452" style="margin-bottom: 20px;">
-</iframe>
+<div class="image-grid">
+<!-- section for 3 top images -->
+<div class="image">
+<!-- split each image into its own section for the grid rule to work -->
+<img src= "images/hills.png" alt="photo" width= "275" height="275" >
 </div>
-<div id="task-type-count" class="section level1">
-<h1>Task Type Count</h1>
-<iframe src="taskcount_hist.html" width="950" height="452" style="margin-bottom: 20px;">
-</iframe>
+<div class="image">
+<!-- split each image into its own section for the grid rule to work -->
+<img src= "images/abacus.jpg" alt="photo" width= "275" height="275" >
 </div>
-<div id="preferred-for-count" class="section level1">
-<h1>Preferred FoR Count</h1>
-<iframe src="FoR_hist.html" width="950" height="452" style="margin-bottom: 20px;">
-</iframe>
+<div class="image">
+<!-- split each image into its own section for the grid rule to work -->
+<img src= "images/sitting_clock.png" alt="photo" width= "275" height="275" >
 </div>
-<div id="test-sites-by-continent" class="section level1">
-<h1>Test Sites by Continent</h1>
-<iframe src="continent_hist.html" width="950" height="452" style="margin-bottom: 20px;">
-</iframe>
+</div>
+<h1 style="text-align: center; margin-top: 5px; margin-bottom: 16.5px;">
+Welcome to ATLAS!
+</h1>
+<p><!-- welcome text --></p>
+<h4>
+The Abstract Thought and Language Across Space (ATLAS) databank is a
+compendium of published research on cross-cultural variability in the
+conceptualization of space, time, and number. Specifically, it collects
+published studies involving non-English-speaking participants that
+investigate: (1) spatial frames of reference, (2) spatial
+representations of time, and (3) spatial representations of number.
+</h4>
+<p><!-- databank description text --></p>
+<p><img src= "images/index_map.png" alt="photo"> <!-- map image --></p>
+<div class="footer">
+<!-- gray footer section -->
+<h5>
+Our data and coding manual are now available for the Space domain while
+Time and Number are currently in the works! You can view and download
+them now on our <a
+href="https://osf.io/83rj2/?view_only=ac995561401a43eda7e3394701b7bfcf">Open
+Science Framework</a>.
+<!-- edit text in parenthesis to change OSF link -->
+</h5>
 </div>
 
 
