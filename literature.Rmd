@@ -21,7 +21,7 @@ output: html_document
 
 <h1 style="text-align: center;">The Literature</h1>
 <div class="description" style="padding-top: 3px; padding-bottom: 10px;">
-<h5>When searching the literature, possible search terms included “spatial frame(s) of reference.” This term was paired with the names of specific countries to generate cross-cultural studies (e.g., “germany”). We used search engines like PsycInfo and Google Scholar. Additionally, when we identified a certain researcher who had contributed many relevant works, we searched directly on their Google Scholar profile and their website in an attempt to find more papers. We only included papers if they studied the use of spatial frames of reference in at least one non-English-speaking sample.</h5> <!-- literature search description -->
+<h4>When searching the literature, possible search terms included “spatial frame(s) of reference.” This term was paired with the names of specific countries to generate cross-cultural studies (e.g., “germany”). We used search engines like PsycInfo and Google Scholar. Additionally, when we identified a certain researcher who had contributed many relevant works, we searched directly on their Google Scholar profile and their website in an attempt to find more papers. We only included papers if they studied the use of spatial frames of reference in at least one non-English-speaking sample.</h4> <!-- literature search description -->
 </div>
 
 ```{r, echo = FALSE}

@@ -4,10 +4,10 @@ navbar:
   left:
     - text: "Home" #text displayed for the Home link. same for others below
       href: index.html #URL of the Home page. same for others below
-    - text: "Databank"       
-      href: databank.html
     - text: "Figures"
       href: figures.html
+    - text: "Databank"       
+      href: databank.html
     - text: "Literature"
       href: literature.html
     - text: "The Team"

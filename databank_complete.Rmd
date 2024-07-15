@@ -1,0 +1,41 @@
+---
+title: "Databank"
+author: "Alyssa Ortega"
+date: "2024-03-14"
+output: html_document
+---
+
+<style type="text/css">
+.title {
+    display: none; /* hide title from output */
+}
+
+.author {
+    display: none; /* hide author from output */
+}
+
+.date{
+    display: none; /* hide date from output */
+}
+</style>
+
+<h1 style="text-align: center;">The Databank</h1>
+<div class="description" style="padding-top: 3px; padding-bottom: 10px;">
+<h5>For each paper, each task performed by a different cultural group is entered in ATLAS as its own row. A task consists of a different procedure or outcome variable. A group differs if they speak a different language, live in a different place, etc.  
+
+For instance, some papers consist of multiple studies. In that case, each study, at minimum, will be coded on as many rows as the number of different cultural groups who participated. (e.g., If two groups completed one study that consisted of a single task, then the study will be coded on two rows, one for each group.)
+
+In some cases, a study will consist of multiple subtasks. In that case, each subtask gets its own row; these should be distinguished using the TaskID variable. (e.g., If two groups completed one study that consisted of three subtasks, then the study will be coded on six rows — 2 groups x 3 tasks.)</h5>  <!-- databank description -->
+
+</div>
+
+```{r, echo=FALSE}
+suppressMessages(library(DT)) #load library & suppress outputting messages
+suppressMessages(library(dplyr)) #load library & suppress outputting messages
+data <- read.csv("ATLASDatabankv0.2-SPACEFinalized.csv") #read in data
+data <- data %>%
+  select("Citation", "SpaceTask", "DependentMeasurePrimary", "FoR", "FoR_In_Task", "PerformanceIfRestrictedFoR", "StudyNumber", "TaskID", "Country", "SpecificLocation", "UrbanRural", "Language") # only include cols with these names
+
+datatable(data, filter = 'top', options = list(pageLength = 10, scrollX = TRUE), width = "100%") 
+
+```
